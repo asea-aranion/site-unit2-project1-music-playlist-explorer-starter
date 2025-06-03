@@ -1,6 +1,72 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Avenir', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: rgb(46, 45, 45);
+    color: white;
+}
+
+#main-header {
+    background-color: rgb(31, 30, 43);
+}
+
+#main-header h1 {
+    margin: 0;
+    padding: 1rem;
+}
+
+.playlist-cards {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    align-content: space-around;
+    align-items: center;
+}
+
+.playlist {
+    width: 18rem;
+    background-color: rgb(31, 30, 43);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin-top: 3rem;
+    transition: width 0.25s ease-in-out;
+}
+
+.playlist:hover {
+    width: 19rem;
+}
+
+.playlist img {
+    width: 100%;
+}
+
+.playlist h3 {
+    font-size: 22px;
+    margin: 0.2rem 0.8rem;
+}
+
+.playlist p {
+    font-size: 18px;
+    margin: 0.2rem 0.8rem;
+}
+
+.playlist button {
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    padding-block: 0;
+    padding-inline: 0;
+}
+
+.playlist svg {
+    width: 32px;
+    height: 32px;
+}
+
+.like-container {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0.8rem;
 }
