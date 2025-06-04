@@ -19,10 +19,11 @@ body {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    gap: 2.5rem;
     align-content: space-around;
     align-items: center;
 }
+
+
 
 .playlist {
     width: 18rem;
@@ -30,12 +31,13 @@ body {
     border-radius: 1rem;
     overflow: hidden;
     box-sizing: border-box;
-    margin-top: 3rem;
-    transition: width 0.25s ease-in-out;
+    margin: 1.5rem;
+    border: none;
+    transition: border 0.25s ease-in-out;
 }
 
 .playlist:hover {
-    width: 19rem;
+    border: mediumseagreen 5px solid;
 }
 
 .playlist img {
@@ -52,12 +54,15 @@ body {
     margin: 0.2rem 0.8rem;
 }
 
-.playlist button {
+button {
     text-decoration: none;
     background-color: transparent;
     border: none;
     padding-block: 0;
     padding-inline: 0;
+    color: inherit;
+    font-family: inherit;
+    text-align: inherit;
 }
 
 .playlist svg {
@@ -69,4 +74,52 @@ body {
     display: flex;
     align-items: center;
     margin: 1rem 0.8rem;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(20, 20, 20, 0.7);
+    display: none;
+}
+
+#modal {
+    background-color: rgb(46, 45, 45);
+    width: 80vw;
+    height: 80vh;
+    margin: 10vh auto;
+    border-radius: 2rem;
+    overflow: scroll;
+}
+
+.playlist-info {
+    padding: 1.5rem;
+}
+
+.playlist-info img {
+    height: 30vh;
+    float: left;
+}
+
+.playlist-info-text {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: 30vh;
+    gap: 1.4rem;
+    padding: 0rem 2rem;
+}
+
+.playlist-info h3 {
+    font-size: 32px;
+    margin: 0rem;
+}
+
+.playlist-info p {
+    font-size: 24px;
+    margin: 0.2rem;
 }

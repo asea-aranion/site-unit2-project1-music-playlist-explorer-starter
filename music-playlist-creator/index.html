@@ -16,7 +16,7 @@
 
     <main> 
         <section class="playlist-cards">
-            <article class="playlist">
+            <article class="playlist" onclick="showModal()">
                 <img src="assets/img/playlist.png" alt="An icon of a spinning CD.">
                 <h3>Playlist Title</h3>
                 <p>Creator Name</p>
@@ -101,6 +101,27 @@
                 </div>
             </article>
         </section>
+        <div id="overlay">
+            <div id="modal">
+                <section class="playlist-info">
+                    <img src="assets/img/playlist.png" alt="An icon of a spinning CD.">
+                    <div class="playlist-info-text">
+                        <h3>Playlist Title</h3>
+                        <p>Creator Name</p>
+                    </div>
+                </section>
+                <section class="songs">
+                    <article class="song">
+                        <img src="assets/img/song.png" alt="An icon of a music note.">
+                        <div class="song-info-text">
+                            <h6>Song Title</h6>
+                            <p>Artist</p>
+                            <p>Album Name</p>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </div>
     </main>
 
     <footer>
