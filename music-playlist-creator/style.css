@@ -23,8 +23,6 @@ body {
     align-items: center;
 }
 
-
-
 .playlist {
     width: 18rem;
     background-color: rgb(31, 30, 43);
@@ -83,7 +81,9 @@ button {
     width: 100vw;
     height: 100vh;
     background-color: rgba(20, 20, 20, 0.7);
-    display: none;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    z-index: -1;
 }
 
 #modal {
@@ -122,4 +122,42 @@ button {
 .playlist-info p {
     font-size: 24px;
     margin: 0.2rem;
+    color: #899afa;
+}
+
+.songs {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.song img {
+    float: left;
+    width: 8rem;
+}
+
+.song-info-text {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    height: 8rem;
+    padding-left: 2rem;
+}
+
+.song-info-text h6, .song-info-text p {
+    margin: 0;
+}
+
+.song-info-text h6 {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.song-info-text p {
+    font-size: 16px;
+    color: #899afa;
 }
