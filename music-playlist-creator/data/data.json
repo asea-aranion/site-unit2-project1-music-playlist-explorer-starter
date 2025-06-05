@@ -1,56 +1,520 @@
 {
-    "playlists": [
+  "playlists": [
+    {
+      "id": 0,
+      "title": "Indie Pop Vibes",
+      "author": "Emma",
+      "likes": 245,
+      "playlistArt": {
+        "src": "assets/img/playlist0.jpg",
+        "alt": "placeholder"
+      },
+      "songs": [
         {
-            "playlist_id": 0,
-            "playlist_title": "sad hours",
-            "playlist_author": "Ivy",
-            "playlist_art": "assets/img/playlist.png",
-            "playlist_art_alt": "An icon of a spinning CD.",
-            "playlist_likes": 2,
-            "songs": [
-                {
-                    "song_title": "first song",
-                    "song_artist": "artist",
-                    "song_album": "best album",
-                    "song_art": "assets/img/song.png",
-                    "song_art_alt": "An icon of a music note."
-                },
-                {
-                    "song_title": "second song",
-                    "song_artist": "artist",
-                    "song_album": "best album",
-                    "song_art": "assets/img/song.png",
-                    "song_art_alt": "An icon of a music note."
-                },
-                {
-                    "song_title": "third song",
-                    "song_artist": "artist",
-                    "song_album": "best album",
-                    "song_art": "assets/img/song.png",
-                    "song_art_alt": "An icon of a music note."
-                },
-                {
-                    "song_title": "third song",
-                    "song_artist": "artist",
-                    "song_album": "best album",
-                    "song_art": "assets/img/song.png",
-                    "song_art_alt": "An icon of a music note."
-                },
-                {
-                    "song_title": "third song",
-                    "song_artist": "artist",
-                    "song_album": "best album",
-                    "song_art": "assets/img/song.png",
-                    "song_art_alt": "An icon of a music note."
-                },
-                {
-                    "song_title": "third song",
-                    "song_artist": "artist",
-                    "song_album": "best album",
-                    "song_art": "assets/img/song.png",
-                    "song_art_alt": "An icon of a music note."
-                }
-            ]
+          "title": "We Are Beautiful, We Are Doomed",
+          "artist": "Los Campesinos!",
+          "album": "Hold on Now, Youngster...",
+          "duration": "3:49",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Lloyd, I'm Ready to Be Heartbroken",
+          "artist": "Camera Obscura",
+          "album": "Let's Get Out of This Country",
+          "duration": "3:07",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "There Are Listed Buildings",
+          "artist": "Los Campesinos!",
+          "album": "Hold on Now, Youngster...",
+          "duration": "3:39",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "New Slang",
+          "artist": "The Shins",
+          "album": "Oh, Inverted World",
+          "duration": "3:51",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Here Comes Your Man",
+          "artist": "Pixies",
+          "album": "Doolittle",
+          "duration": "3:21",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "You! Me! Dancing!",
+          "artist": "Los Campesinos!",
+          "album": "Hold on Now, Youngster...",
+          "duration": "4:29",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
         }
-    ]
+      ]
+    },
+    {
+      "id": 1,
+      "title": "Chill Acoustic",
+      "author": "Jake",
+      "likes": 134,
+      "playlistArt": {
+        "src": "assets/img/playlist1.jpg",
+        "alt": "placeholder"
+      },
+      "songs": [
+        {
+          "title": "First Day of My Life",
+          "artist": "Bright Eyes",
+          "album": "I'm Wide Awake, It's Morning",
+          "duration": "3:09",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Plans",
+          "artist": "Los Campesinos!",
+          "album": "No Blues",
+          "duration": "3:43",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Heartbeats",
+          "artist": "José González",
+          "album": "Veneer",
+          "duration": "2:39",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Banana Pancakes",
+          "artist": "Jack Johnson",
+          "album": "In Between Dreams",
+          "duration": "3:12",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Sea of Love",
+          "artist": "Cat Power",
+          "album": "The Covers Record",
+          "duration": "2:34",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Energetic Rock Anthems",
+      "author": "Sophia",
+      "likes": 367,
+      "playlistArt": {
+        "src": "assets/img/playlist2.jpg",
+        "alt": "placeholder"
+      },
+      "songs": [
+        {
+          "title": "My Year in the Nursery",
+          "artist": "Los Campesinos!",
+          "album": "Romance is Boring",
+          "duration": "3:33",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Mr. Brightside",
+          "artist": "The Killers",
+          "album": "Hot Fuss",
+          "duration": "3:42",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Take Me Out",
+          "artist": "Franz Ferdinand",
+          "album": "Franz Ferdinand",
+          "duration": "3:57",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Seven Nation Army",
+          "artist": "The White Stripes",
+          "album": "Elephant",
+          "duration": "3:52",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Brianstorm",
+          "artist": "Arctic Monkeys",
+          "album": "Favourite Worst Nightmare",
+          "duration": "2:50",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Art of Almost",
+          "artist": "Los Campesinos!",
+          "album": "Romance is Boring",
+          "duration": "4:05",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Dreamy Indie",
+      "author": "Liam",
+      "likes": 198,
+      "playlistArt": {
+        "src": "assets/img/playlist3.jpg",
+        "alt": "placeholder"
+      },
+      "songs": [
+        {
+          "title": "Sweetness Bleeding",
+          "artist": "Los Campesinos!",
+          "album": "Romance is Boring",
+          "duration": "3:59",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Midnight City",
+          "artist": "M83",
+          "album": "Hurry Up, We're Dreaming",
+          "duration": "4:03",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "New Year's Eve",
+          "artist": "Sufjan Stevens",
+          "album": "The Avalanche",
+          "duration": "4:12",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Somewhere Only We Know",
+          "artist": "Keane",
+          "album": "Hopes and Fears",
+          "duration": "3:59",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Death to Los Campesinos!",
+          "artist": "Los Campesinos!",
+          "album": "Romance is Boring",
+          "duration": "4:17",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Feel-Good Summer",
+      "author": "Olivia",
+      "likes": 412,
+      "playlistArt": {
+        "src": "assets/img/playlist4.jpg",
+        "alt": "placeholder"
+      },
+      "songs": [
+        {
+          "title": "Sing Me Spanish Techno",
+          "artist": "Los Campesinos!",
+          "album": "Romance is Boring",
+          "duration": "4:03",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Electric Feel",
+          "artist": "MGMT",
+          "album": "Oracular Spectacular",
+          "duration": "3:50",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Young Folks",
+          "artist": "Peter Bjorn and John",
+          "album": "Writer's Block",
+          "duration": "4:39",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Island in the Sun",
+          "artist": "Weezer",
+          "album": "Weezer (Green Album)",
+          "duration": "3:20",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Sunflower",
+          "artist": "Post Malone & Swae Lee",
+          "album": "Spider-Man: Into the Spider-Verse",
+          "duration": "2:38",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Moody Melancholy",
+      "author": "Noah",
+      "likes": 156,
+      "playlistArt": {
+        "src": "assets/img/playlist5.jpg",
+        "alt": "placeholder"
+      },
+      "songs": [
+        {
+          "title": "The Sea Is a Good Place to Think of the Future",
+          "artist": "Los Campesinos!",
+          "album": "No Blues",
+          "duration": "4:17",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Holocene",
+          "artist": "Bon Iver",
+          "album": "Bon Iver",
+          "duration": "5:36",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Breathe Me",
+          "artist": "Sia",
+          "album": "Colour the Small One",
+          "duration": "4:34",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Slow Dancing in a Burning Room",
+          "artist": "John Mayer",
+          "album": "Continuum",
+          "duration": "4:02",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Shadow of the Day",
+          "artist": "Linkin Park",
+          "album": "Minutes to Midnight",
+          "duration": "4:50",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Feel-Good Punk",
+      "author": "Mia",
+      "likes": 278,
+      "playlistArt": {
+        "src": "assets/img/playlist6.jpg",
+        "alt": "placeholder"
+      },
+      "songs": [
+        {
+          "title": "I Broke Up in a Car",
+          "artist": "Los Campesinos!",
+          "album": "No Blues",
+          "duration": "3:37",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "All the Small Things",
+          "artist": "Blink-182",
+          "album": "Enema of the State",
+          "duration": "2:48",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Basket Case",
+          "artist": "Green Day",
+          "album": "Dookie",
+          "duration": "3:01",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Sugar, We're Goin Down",
+          "artist": "Fall Out Boy",
+          "album": "From Under the Cork Tree",
+          "duration": "3:42",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Time to Dance",
+          "artist": "The Shoes",
+          "album": "Crack My Bones",
+          "duration": "3:55",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Electronic Chillout",
+      "author": "Aiden",
+      "likes": 220,
+      "playlistArt": {
+        "src": "assets/img/playlist7.jpg",
+        "alt": "placeholder"
+      },
+      "songs": [
+        {
+          "title": "Romance is Boring",
+          "artist": "Los Campesinos!",
+          "album": "Romance is Boring",
+          "duration": "4:12",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Midnight",
+          "artist": "Lane 8",
+          "album": "Little by Little",
+          "duration": "7:35",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Open Eye Signal",
+          "artist": "Jon Hopkins",
+          "album": "Immunity",
+          "duration": "9:12",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "You & Me (Flume Remix)",
+          "artist": "Disclosure",
+          "album": "Settle",
+          "duration": "4:42",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        },
+        {
+          "title": "Sun Models",
+          "artist": "Odesza",
+          "album": "In Return",
+          "duration": "4:43",
+          "art": {
+            "src": "assets/img/song.png",
+            "alt": "An icon of a music note."
+          }
+        }
+      ]
+    }
+  ]
 }

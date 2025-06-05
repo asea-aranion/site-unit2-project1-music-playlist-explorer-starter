@@ -50,19 +50,19 @@ const displayPlaylists = () => {
 
         const newPlaylist = document.createElement("article");
         newPlaylist.className = "playlist";
-        newPlaylist.id = playlist["playlist_id"];
+        newPlaylist.id = playlist["id"];
         newPlaylist.innerHTML = `
-            <img src=${playlist["playlist_art"]} alt=${playlist["playlist_art_alt"]}>
-            <h3>${playlist["playlist_title"]}</h3>
-            <p>${playlist["playlist_author"]}</p>
+            <img src=${playlist["playlistArt"]["src"]} alt=${playlist["playlistArt"]["alt"]}>
+            <h3>${playlist["title"]}</h3>
+            <p>${playlist["author"]}</p>
             <div class="like-container" data-liked="false">
-                <button onclick="toggleLike(${playlist["playlist_id"]})">
+                <button onclick="toggleLike(${playlist["id"]})">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
                         ${heartOutlinePath}
                     </svg>
                 </button>
-                <p class="like-counter">${playlist["playlist_likes"]}</p>
+                <p class="like-counter">${playlist["likes"]}</p>
             </div>
         `
 
@@ -91,9 +91,9 @@ const displayFeaturedPlaylist = () => {
     newPlaylist.className = "featured-playlist";
     newPlaylist.innerHTML = `
         <div class="featured-info">
-            <img src=${featured["playlist_art"]} alt=${featured["playlist_art_alt"]}>
-            <h3>${featured["playlist_title"]}</h3>
-            <p>${featured["playlist_author"]}</p>
+            <img src=${featured["playlistArt"]["src"]} alt=${featured["playlistArt"]["alt"]}>
+            <h3>${featured["title"]}</h3>
+            <p>${featured["author"]}</p>
         </div>
         <aside class="featured-song-container">
 
@@ -109,11 +109,11 @@ const displayFeaturedPlaylist = () => {
         const newSong = document.createElement("article");
         newSong.className = "featured-song";
         newSong.innerHTML = `
-            <img src=${song["song_art"]} alt=${song["song_art_alt"]}>
+            <img src=${song["art"]["src"]} alt=${song["art"]["alt"]}>
             <div class="song-info-text">
-                <h6>${song["song_title"]}</h6>
-                <p>${song["song_artist"]}</p>
-                <p>${song["song_album"]}</p>
+                <h6>${song["title"]} <span class="song-duration">${song["duration"]}</span></h6>
+                <p>${song["artist"]}</p>
+                <p>${song["album"]}</p>
             </div>
         `;
 
@@ -130,10 +130,10 @@ const toggleLike = (id) => {
         // like playlist
 
         // update playlist data
-        playlists[id]["playlist_likes"] += 1;
+        playlists[id]["likes"] += 1;
 
         // update displayed like counter
-        playlistLikeContainer.querySelector(".like-counter").textContent = playlists[id]["playlist_likes"];
+        playlistLikeContainer.querySelector(".like-counter").textContent = playlists[id]["likes"];
 
         // update heart icon
         playlistLikeContainer.querySelector("svg").innerHTML = heartFilledPath;
@@ -145,10 +145,10 @@ const toggleLike = (id) => {
         // unlike playlist
 
         // update playlist data
-        playlists[id]["playlist_likes"] -= 1;
+        playlists[id]["likes"] -= 1;
 
         // update displayed like counter
-        playlistLikeContainer.querySelector(".like-counter").textContent = playlists[id]["playlist_likes"];
+        playlistLikeContainer.querySelector(".like-counter").textContent = playlists[id]["likes"];
 
         // update heart icon
         playlistLikeContainer.querySelector("svg").innerHTML = heartOutlinePath;
@@ -181,12 +181,12 @@ const shufflePlaylist = (id) => {
 // makes overlay and modal visible, disables scrolling
 const showModal = (playlistData) => {
     // populate clicked playlist data
-    modal.querySelector("h3").innerHTML = playlistData["playlist_title"];
-    modal.querySelector("p").innerHTML = playlistData["playlist_author"];
-    modal.querySelector("img").src = playlistData["playlist_art"];
-    modal.querySelector("img").alt = playlistData["playlist_art_alt"];
+    modal.querySelector("h3").innerHTML = playlistData["title"];
+    modal.querySelector("p").innerHTML = playlistData["author"];
+    modal.querySelector("img").src = playlistData["playlistArt"]["src"];
+    modal.querySelector("img").alt = playlistData["playlistArt"]["alt"];
     modal.querySelector("button").onclick = () => {
-        shufflePlaylist(playlistData["playlist_id"]);
+        shufflePlaylist(playlistData["id"]);
     }
 
     const songContainer = modal.querySelector(".songs");
@@ -197,11 +197,11 @@ const showModal = (playlistData) => {
         const newSong = document.createElement("article");
         newSong.className = "song";
         newSong.innerHTML = `
-            <img src=${song["song_art"]} alt=${song["song_art_alt"]}>
+            <img src=${song["art"]["src"]} alt=${song["art"]["alt"]}>
             <div class="song-info-text">
-                <h6>${song["song_title"]}</h6>
-                <p>${song["song_artist"]}</p>
-                <p>${song["song_album"]}</p>
+                <h6>${song["title"]} <span class="song-duration">${song["duration"]}</span></h6>
+                <p>${song["artist"]}</p>
+                <p>${song["album"]}</p>
             </div>
         `;
 

@@ -27,7 +27,7 @@ footer {
 }
 
 .nav-links-container {
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
     border-radius: 2rem;
     overflow: clip;
     display: flex;
@@ -46,7 +46,7 @@ footer {
 }
 
 .nav-links-container a:hover {
-    background-color: #899afa;
+    background-color: mediumseagreen;
 }
 
 .playlist-cards {
@@ -55,6 +55,7 @@ footer {
     justify-content: center;
     align-content: space-around;
     align-items: center;
+    padding-bottom: 5rem;
 }
 
 .playlist {
@@ -121,7 +122,7 @@ button {
 }
 
 #overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -139,19 +140,22 @@ button {
     margin: 10vh auto;
     border-radius: 2rem;
     overflow: scroll;
+    box-shadow: 0px 10px 10px black;
 }
 
 .playlist-info {
     padding: 1.5rem;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: flex-end;
     width: 80vw;
     box-sizing: border-box;
+    gap: 2rem;
 }
 
 .playlist-info img {
     width: 30vh;
+    height: 30vh;
 }
 
 .playlist-info-text {
@@ -159,10 +163,7 @@ button {
     flex-flow: column nowrap;
     justify-content: flex-end;
     align-items: flex-start;
-    height: 30vh;
     gap: 1.4rem;
-    padding: 0rem 2rem;
-    width: 50vw;
 }
 
 .playlist-info h3 {
@@ -184,6 +185,7 @@ button {
     font-size: 20px;
     text-align: center;
     color: black;
+    margin-left: auto;
 }
 
 .playlist-info button:hover {
@@ -200,8 +202,15 @@ button {
 }
 
 .song img {
-    float: left;
     width: 8rem;
+}
+
+.song {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 .song-info-text {
@@ -209,8 +218,8 @@ button {
     flex-flow: column nowrap;
     justify-content: flex-end;
     gap: 0.5rem;
-    height: 8rem;
-    padding-left: 1.5rem;
+    overflow-x: scroll;
+    text-wrap-mode: nowrap;
 }
 
 .song-info-text h6, .song-info-text p {
@@ -241,14 +250,36 @@ button {
 }
 
 .featured-info {
-    width: 30vw;
+    width: 25rem;
     padding: 2rem;
-    height: 80vh;
     background-color: rgb(31, 30, 43);
     border-radius: 2rem;
     transition: border 0.25s ease-in-out;
     border: none;
     box-sizing: border-box;
+}
+
+@media (max-width: 1260px) {
+    .featured-playlist {
+        flex-flow: column nowrap;
+    }
+
+    .featured-info {
+        width: 100%;
+    }
+
+    .featured-song-container {
+        width: 100%;
+        overflow: visible;
+    }
+
+    .featured-info h3 {
+        font-size: 20px;
+    }
+
+    .featured-info p {
+        font-size: 14px;
+    }
 }
 
 .featured-info:hover {
@@ -257,6 +288,7 @@ button {
 
 .featured-info img {
     width: 100%;
+    margin: auto;
 }
 
 .featured-info h3 {
@@ -269,18 +301,17 @@ button {
 }
 
 .featured-info h3, .featured-info p {
-    margin: 1.5rem 0;
+    margin: 1rem 0;
 }
 
 .featured-song-container {
     flex-grow: 5;
-    height: 80vh;
+    height: 70vh;
     overflow: scroll;
 }
 
 .featured-song img {
-    float: left;
-    width: 8rem;
+    height: 100%;
 }
 
 .featured-song {
@@ -293,6 +324,11 @@ button {
     overflow: hidden;
     width: 100%;
     margin-bottom: 1.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
 }
 
 .featured-song:hover {
@@ -301,4 +337,9 @@ button {
 
 .featured-song .song-info-text {
     justify-content: center;
+}
+
+.song-duration {
+    color: lightgray;
+    margin-left: 0.5rem;
 }
