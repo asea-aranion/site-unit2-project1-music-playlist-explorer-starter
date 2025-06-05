@@ -1,0 +1,35 @@
+{
+    "playlists": [
+        {
+            "playlist_id": 0,
+            "playlist_title": "sad hours",
+            "playlist_author": "Ivy",
+            "playlist_art": "assets/img/playlist.png",
+            "playlist_art_alt": "An icon of a spinning CD.",
+            "playlist_likes": 2,
+            "songs": [
+                {
+                    "song_title": "first song",
+                    "song_artist": "artist",
+                    "song_album": "best album",
+                    "song_art": "assets/img/song.png",
+                    "song_art_alt": "An icon of a music note."
+                },
+                {
+                    "song_title": "second song",
+                    "song_artist": "artist",
+                    "song_album": "best album",
+                    "song_art": "assets/img/song.png",
+                    "song_art_alt": "An icon of a music note."
+                },
+                {
+                    "song_title": "third song",
+                    "song_artist": "artist",
+                    "song_album": "best album",
+                    "song_art": "assets/img/song.png",
+                    "song_art_alt": "An icon of a music note."
+                }
+            ]
+        }
+    ]
+}

@@ -68,6 +68,18 @@ button {
     height: 32px;
 }
 
+.playlist button path {
+    transition: fill 0.25s ease-in-out;
+}
+
+.playlist button:hover path.outlined {
+    fill: mediumseagreen;
+}
+
+.playlist button:hover path.filled {
+    fill: #899afa;
+}
+
 .like-container {
     display: flex;
     align-items: center;
@@ -97,11 +109,15 @@ button {
 
 .playlist-info {
     padding: 1.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    width: 80vw;
+    box-sizing: border-box;
 }
 
 .playlist-info img {
-    height: 30vh;
-    float: left;
+    width: 30vh;
 }
 
 .playlist-info-text {
@@ -112,6 +128,7 @@ button {
     height: 30vh;
     gap: 1.4rem;
     padding: 0rem 2rem;
+    width: 50vw;
 }
 
 .playlist-info h3 {
@@ -123,6 +140,20 @@ button {
     font-size: 24px;
     margin: 0.2rem;
     color: #899afa;
+}
+
+.playlist-info button {
+    background-color: #899afa;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
+
+.playlist-info button:hover {
+    background-color: mediumseagreen;
 }
 
 .songs {
