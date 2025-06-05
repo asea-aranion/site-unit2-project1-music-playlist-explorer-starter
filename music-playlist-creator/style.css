@@ -1,5 +1,5 @@
 body {
-    font-family: 'Avenir', sans-serif;
+    font-family: "Avenir", sans-serif;
     margin: 0;
     padding: 0;
     background-color: rgb(46, 45, 45);
@@ -28,8 +28,8 @@ footer {
 
 .nav-links-container {
     margin-bottom: 2.5rem;
-    border-radius: 2rem;
-    overflow: clip;
+    border-radius: 3rem;
+    overflow: hidden;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -37,15 +37,130 @@ footer {
 }
 
 .nav-links-container a {
-    padding: 1.5rem;
-    color: white;
+    padding: 1rem 2rem;
+    color: black;
     font-size: 20px;
     text-decoration: none;
     font-weight: bold;
-    background-color: rgb(31, 30, 43);
+    background-color: #899afa;
 }
 
 .nav-links-container a:hover {
+    background-color: mediumseagreen;
+}
+
+.top-buttons-container {
+    margin: 1.5rem 5rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-buttons-container button {
+    background-color: #899afa;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+}
+
+.top-buttons-container button:hover {
+    background-color: mediumseagreen;
+}
+
+#add-playlist-form {
+    height: 0rem;
+    overflow: hidden;
+    transition: height 0.25s ease-in-out;
+    margin: 1.5rem 5rem 0;
+}
+
+.sort-buttons-container {
+    display: flex;
+    flex-flow: row wrap;
+    border-radius: 2rem;
+    overflow: hidden;
+}
+
+.sort-buttons-container button {
+    border-radius: 0;
+}
+
+.sort-buttons-container p {
+    background-color: rgb(31, 30, 43);
+    font-size: 20px;
+    text-align: center;
+    padding: 1rem 2rem;
+    margin: 0;
+}
+
+#add-playlist-form input {
+    display: block;
+    font-family: "Avenir", sans-serif;
+    color: white;
+    font-size: 20px;
+    margin: 1rem 0rem;
+    width: 20rem;
+}
+
+#add-playlist-form input[type="text"] {
+    background-color: rgb(31, 30, 43);
+    border-radius: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+}
+
+#add-playlist-form button[type="submit"] {
+    background-color: #899afa;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    margin-top: 1rem;
+}
+
+#add-playlist-form button:hover {
+    background-color: mediumseagreen;
+}
+
+.search-container {
+    margin: 2rem 5rem;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.search-container input {
+    font-family: "Avenir", sans-serif;
+    color: white;
+    font-size: 20px;
+    margin: 1rem 0rem;
+    background-color: rgb(31, 30, 43);
+    border-radius: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    flex-grow: 5;
+}
+
+.search-container button {
+    background-color: #899afa;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    margin: 0.2rem 0;
+}
+
+.search-container button:hover {
     background-color: mediumseagreen;
 }
 
@@ -85,6 +200,21 @@ footer {
 .playlist p {
     font-size: 18px;
     margin: 0.2rem 0.8rem;
+}
+
+.playlist-button-container button {
+    background-color: #899afa;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    margin: 0.2rem 0.8rem 1rem;
+}
+
+.playlist-button-container button:hover {
+    background-color: mediumseagreen;
 }
 
 button {

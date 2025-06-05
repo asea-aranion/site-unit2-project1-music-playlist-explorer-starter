@@ -22,7 +22,7 @@ const loadPlaylistData = async () => {
             playlists = data["playlists"];
 
             // display either all playlists or featured playlist, depending on page
-            if (displayPlaylists() === 1) {
+            if (displayPlaylists(playlists) === 1) {
                 displayFeaturedPlaylist();
             }
         })
@@ -32,7 +32,7 @@ const loadPlaylistData = async () => {
 }
 
 // loads playlists into section.playlist-cards
-const displayPlaylists = () => {
+const displayPlaylists = (playlistsData) => {
     const playlistContainer = document.querySelector(".playlist-cards");
 
     // check if current page is featured.html (does not contain section.playlist-cards)
@@ -46,7 +46,7 @@ const displayPlaylists = () => {
     playlistContainer.innerHTML = "";
 
     // iterate over playlists in data array, adding them as children of the playlist container
-    for (let playlist of playlists) {
+    for (let playlist of playlistsData) {
 
         const newPlaylist = document.createElement("article");
         newPlaylist.className = "playlist";
@@ -64,12 +64,17 @@ const displayPlaylists = () => {
                 </button>
                 <p class="like-counter">${playlist["likes"]}</p>
             </div>
+            <div class="playlist-button-container">
+                <button onclick="deletePlaylist(${playlist["id"]})">
+                    Delete
+                </button>
+            </div>
         `
 
         newPlaylist.addEventListener("click", (event) => {
-
-            // prevent liking/unliking a playlist from displaying modal
-            if (event.target.tagName !== "button" && event.target.tagName !== "svg" && event.target.tagName !== "path") {
+            
+            // prevent clicking buttons within a playlist from displaying modal
+            if (event.target.tagName !== "BUTTON" && event.target.tagName !== "svg" && event.target.tagName !== "path") {
                 showModal(playlist);
             }
 
@@ -221,12 +226,102 @@ const hideModal = () => {
     overlay.style.zIndex = "-1";
 }
 
+const handleAddPlaylistSubmit = (event) => {
+    event.preventDefault();
+
+    const imageURL = URL.createObjectURL(document.getElementById("input-cover").files[0]);
+
+    playlists.push({
+        "id": playlists[playlists.length - 1]["id"] + 1,
+        "title": document.getElementById("input-title").value,
+        "author": document.getElementById("input-author").value,
+        "likes": 0,
+        "dateAdded": new Date().toDateString(),
+        "playlistArt": {
+            "src": imageURL,
+            "alt": ""
+        },
+        "songs": []
+    })
+
+    displayPlaylists(playlists);
+
+}
+
+// show or hide the add playlist form, depending on whether it is shown
+const toggleShowAddPlaylistForm = () => {
+    const addPlaylistForm = document.querySelector("#add-playlist-form");
+
+    if (addPlaylistForm.style.height == "16rem") {
+        addPlaylistForm.style.height = "0rem";
+    } else {
+        addPlaylistForm.style.height = "16rem";
+    }
+}
+
+// delete a playlist from the array and display
+const deletePlaylist = (id) => {
+
+    playlists = playlists.filter((element) => element["id"] !== id);
+
+    displayPlaylists(playlists);
+}
+
+// only display playlists whose title or author contain text in the search box
+const filterPlaylists = () => {
+
+    const searchTerm = document.getElementById("input-search").value.toLowerCase();
+
+    displayPlaylists(playlists.filter((element) => 
+        element["title"].toLowerCase().includes(searchTerm) 
+        || element["author"].toLowerCase().includes(searchTerm)
+    ))
+}
+
+// set search box text to empty
+const clearSearchTerm = () => {
+    document.getElementById("input-search").value = "";
+    filterPlaylists();
+}
+
+// perform mutating sort on playlists array and display sorted array
+const sortPlaylists = (sortNum) => {
+
+    // sort by name
+    if (sortNum === 0) {
+        playlists.sort((a, b) => 
+            a["title"].localeCompare(b["title"])
+        );
+
+    // sort by likes
+    } else if (sortNum === 1) {
+        playlists.sort((a, b) =>
+            a["likes"] - b["likes"]
+        );
+
+    // sort by date added
+    } else if (sortNum === 2) {
+        playlists.sort((a, b) =>
+            new Date(b["dateAdded"]) - new Date(a["dateAdded"])
+        );
+    }
+    
+    displayPlaylists(playlists);
+}
+
 // hides modal when it is visible and any area outside it is clicked
 window.onclick = function(event) {
     if (event.target == overlay) {
         hideModal();
     }
 }
+
+// if on index.html, search playlists on enter key press in search box
+document.getElementById("input-search")?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        filterPlaylists();
+    }
+})
 
 loadPlaylistData();
 

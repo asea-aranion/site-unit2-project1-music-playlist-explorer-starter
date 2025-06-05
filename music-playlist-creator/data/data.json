@@ -5,6 +5,7 @@
       "title": "Indie Pop Vibes",
       "author": "Emma",
       "likes": 245,
+      "dateAdded": "2025-05-20",
       "playlistArt": {
         "src": "assets/img/playlist0.jpg",
         "alt": "placeholder"
@@ -13,7 +14,7 @@
         {
           "title": "We Are Beautiful, We Are Doomed",
           "artist": "Los Campesinos!",
-          "album": "Hold on Now, Youngster...",
+          "album": "We Are Beautiful, We Are Doomed",
           "duration": "3:49",
           "art": {
             "src": "assets/img/song.png",
@@ -33,7 +34,7 @@
         {
           "title": "There Are Listed Buildings",
           "artist": "Los Campesinos!",
-          "album": "Hold on Now, Youngster...",
+          "album": "Romance is Boring",
           "duration": "3:39",
           "art": {
             "src": "assets/img/song.png",
@@ -77,6 +78,7 @@
       "title": "Chill Acoustic",
       "author": "Jake",
       "likes": 134,
+      "dateAdded": "2025-04-01",
       "playlistArt": {
         "src": "assets/img/playlist1.jpg",
         "alt": "placeholder"
@@ -93,9 +95,9 @@
           }
         },
         {
-          "title": "Plans",
+          "title": "A Psychic Wound (A Cosmic Cheque Version)",
           "artist": "Los Campesinos!",
-          "album": "No Blues",
+          "album": "More Hell",
           "duration": "3:43",
           "art": {
             "src": "assets/img/song.png",
@@ -139,15 +141,16 @@
       "title": "Energetic Rock Anthems",
       "author": "Sophia",
       "likes": 367,
+      "dateAdded": "2025-05-31",
       "playlistArt": {
         "src": "assets/img/playlist2.jpg",
         "alt": "placeholder"
       },
       "songs": [
         {
-          "title": "My Year in the Nursery",
+          "title": "My Year in Lists",
           "artist": "Los Campesinos!",
-          "album": "Romance is Boring",
+          "album": "Hold on Now, Youngster...",
           "duration": "3:33",
           "art": {
             "src": "assets/img/song.png",
@@ -195,9 +198,9 @@
           }
         },
         {
-          "title": "Art of Almost",
+          "title": "Holy Smoke",
           "artist": "Los Campesinos!",
-          "album": "Romance is Boring",
+          "album": "All Hell",
           "duration": "4:05",
           "art": {
             "src": "assets/img/song.png",
@@ -211,15 +214,16 @@
       "title": "Dreamy Indie",
       "author": "Liam",
       "likes": 198,
+      "dateAdded": "2025-01-06",
       "playlistArt": {
         "src": "assets/img/playlist3.jpg",
         "alt": "placeholder"
       },
       "songs": [
         {
-          "title": "Sweetness Bleeding",
+          "title": "0898 Heartache",
           "artist": "Los Campesinos!",
-          "album": "Romance is Boring",
+          "album": "All Hell",
           "duration": "3:59",
           "art": {
             "src": "assets/img/song.png",
@@ -257,9 +261,9 @@
           }
         },
         {
-          "title": "Death to Los Campesinos!",
+          "title": "Knee Deep at ATP",
           "artist": "Los Campesinos!",
-          "album": "Romance is Boring",
+          "album": "Hold on Now, Youngster...",
           "duration": "4:17",
           "art": {
             "src": "assets/img/song.png",
@@ -273,6 +277,7 @@
       "title": "Feel-Good Summer",
       "author": "Olivia",
       "likes": 412,
+      "dateAdded": "2025-03-11",
       "playlistArt": {
         "src": "assets/img/playlist4.jpg",
         "alt": "placeholder"
@@ -335,6 +340,7 @@
       "title": "Moody Melancholy",
       "author": "Noah",
       "likes": 156,
+      "dateAdded": "2024-11-29",
       "playlistArt": {
         "src": "assets/img/playlist5.jpg",
         "alt": "placeholder"
@@ -343,7 +349,7 @@
         {
           "title": "The Sea Is a Good Place to Think of the Future",
           "artist": "Los Campesinos!",
-          "album": "No Blues",
+          "album": "Romance is Boring",
           "duration": "4:17",
           "art": {
             "src": "assets/img/song.png",
@@ -397,15 +403,16 @@
       "title": "Feel-Good Punk",
       "author": "Mia",
       "likes": 278,
+      "dateAdded": "2025-05-02",
       "playlistArt": {
         "src": "assets/img/playlist6.jpg",
         "alt": "placeholder"
       },
       "songs": [
         {
-          "title": "I Broke Up in a Car",
+          "title": "I Broke Up in Amarante",
           "artist": "Los Campesinos!",
-          "album": "No Blues",
+          "album": "Sick Scenes",
           "duration": "3:37",
           "art": {
             "src": "assets/img/song.png",
@@ -459,6 +466,7 @@
       "title": "Electronic Chillout",
       "author": "Aiden",
       "likes": 220,
+      "dateAdded": "2025-06-03",
       "playlistArt": {
         "src": "assets/img/playlist7.jpg",
         "alt": "placeholder"

@@ -15,6 +15,43 @@
     </header>
 
     <main>
+        <section class="search-container">
+            <input type="text" id="input-search" placeholder="Search by title or author">
+            <button onclick="filterPlaylists()">
+                Search
+            </button>
+            <button onclick="clearSearchTerm()">
+                Clear
+            </button>
+        </section>
+        <section class="top-buttons-container">
+            <section class="add-playlist-container">
+                <button onclick="toggleShowAddPlaylistForm()">
+                    + Add Playlist
+                </button>
+            </section>
+            <section class="sort-buttons-container">
+                <p>Sort by</p>
+                <button onclick="sortPlaylists(0)">
+                    Name
+                </button>
+                <button onclick="sortPlaylists(1)">
+                    Likes
+                </button>
+                <button onclick="sortPlaylists(2)">
+                    Date added
+                </button>
+            </section>
+        </section>
+        
+        <form id="add-playlist-form">
+            <input type="text" id="input-title" placeholder="Playlist title" required>
+            <input type="text" id="input-author" placeholder="Playlist author" required>
+            <input type="file" id="input-cover" accept="image/jpeg, image/png" required>
+            <button type="submit" onclick="handleAddPlaylistSubmit(event)">
+                Add
+            </button>
+        </form>
         
         <section class="playlist-cards">
             
