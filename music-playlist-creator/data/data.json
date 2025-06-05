@@ -28,6 +28,27 @@
                     "song_album": "best album",
                     "song_art": "assets/img/song.png",
                     "song_art_alt": "An icon of a music note."
+                },
+                {
+                    "song_title": "third song",
+                    "song_artist": "artist",
+                    "song_album": "best album",
+                    "song_art": "assets/img/song.png",
+                    "song_art_alt": "An icon of a music note."
+                },
+                {
+                    "song_title": "third song",
+                    "song_artist": "artist",
+                    "song_album": "best album",
+                    "song_art": "assets/img/song.png",
+                    "song_art_alt": "An icon of a music note."
+                },
+                {
+                    "song_title": "third song",
+                    "song_artist": "artist",
+                    "song_album": "best album",
+                    "song_art": "assets/img/song.png",
+                    "song_art_alt": "An icon of a music note."
                 }
             ]
         }

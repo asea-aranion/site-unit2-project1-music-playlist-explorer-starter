@@ -210,7 +210,7 @@ button {
     justify-content: flex-end;
     gap: 0.5rem;
     height: 8rem;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
 }
 
 .song-info-text h6, .song-info-text p {
@@ -225,4 +225,80 @@ button {
 .song-info-text p {
     font-size: 16px;
     color: #899afa;
+}
+
+.featured-container {
+    width: 80vw;
+    margin: 3rem 10vw;
+}
+
+.featured-playlist {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5rem;
+}
+
+.featured-info {
+    width: 30vw;
+    padding: 2rem;
+    height: 80vh;
+    background-color: rgb(31, 30, 43);
+    border-radius: 2rem;
+    transition: border 0.25s ease-in-out;
+    border: none;
+    box-sizing: border-box;
+}
+
+.featured-info:hover {
+    border: mediumseagreen 5px solid;
+}
+
+.featured-info img {
+    width: 100%;
+}
+
+.featured-info h3 {
+    font-size: 32px;
+}
+
+.featured-info p {
+    font-size: 24px;
+    color: #899afa;
+}
+
+.featured-info h3, .featured-info p {
+    margin: 1.5rem 0;
+}
+
+.featured-song-container {
+    flex-grow: 5;
+    height: 80vh;
+    overflow: scroll;
+}
+
+.featured-song img {
+    float: left;
+    width: 8rem;
+}
+
+.featured-song {
+    background-color: rgb(31, 30, 43);
+    border-radius: 2rem;
+    transition: border 0.25s ease-in-out;
+    border: none;
+    height: 8rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.featured-song:hover {
+    border: mediumseagreen 5px solid;
+}
+
+.featured-song .song-info-text {
+    justify-content: center;
 }

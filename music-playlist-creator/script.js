@@ -10,7 +10,7 @@ const heartOutlinePath = '<path class="outlined" fill="#899afa" d="M225.8 468.2l
 const heartFilledPath = '<path class="filled" fill="mediumseagreen" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>';
 
 // fetches data from json file, stores playlists in array, and adds each playlist to view
-const loadPlaylistData = () => {
+const loadPlaylistData = async () => {
     fetch("data/data.json")
         .then(response => {
             if (!response.ok) {
@@ -20,7 +20,11 @@ const loadPlaylistData = () => {
         })
         .then(data => {
             playlists = data["playlists"];
-            displayPlaylists();
+
+            // display either all playlists or featured playlist, depending on page
+            if (displayPlaylists() === 1) {
+                displayFeaturedPlaylist();
+            }
         })
         .catch(error => {
             console.error("Something went wrong: ", error);
@@ -30,6 +34,13 @@ const loadPlaylistData = () => {
 // loads playlists into section.playlist-cards
 const displayPlaylists = () => {
     const playlistContainer = document.querySelector(".playlist-cards");
+
+    // check if current page is featured.html (does not contain section.playlist-cards)
+    if (playlistContainer === null) {
+
+        // return error code to loadPlaylistData()
+        return 1;
+    }
 
     // clear playlist container to prevent duplicating its contents
     playlistContainer.innerHTML = "";
@@ -66,8 +77,51 @@ const displayPlaylists = () => {
 
         playlistContainer.appendChild(newPlaylist);
     }
+
+    return 0;
 }
 
+// displays a random featured playlist (only run on featured.html)
+const displayFeaturedPlaylist = () => {
+    const featured = playlists[Math.floor(Math.random() * playlists.length)];
+
+    const container = document.querySelector(".featured-container");
+
+    const newPlaylist = document.createElement("article");
+    newPlaylist.className = "featured-playlist";
+    newPlaylist.innerHTML = `
+        <div class="featured-info">
+            <img src=${featured["playlist_art"]} alt=${featured["playlist_art_alt"]}>
+            <h3>${featured["playlist_title"]}</h3>
+            <p>${featured["playlist_author"]}</p>
+        </div>
+        <aside class="featured-song-container">
+
+        </aside>
+    `;
+
+    container.appendChild(newPlaylist);
+
+    const songContainer = document.querySelector(".featured-song-container");
+
+    for (let song of featured["songs"]) {
+
+        const newSong = document.createElement("article");
+        newSong.className = "featured-song";
+        newSong.innerHTML = `
+            <img src=${song["song_art"]} alt=${song["song_art_alt"]}>
+            <div class="song-info-text">
+                <h6>${song["song_title"]}</h6>
+                <p>${song["song_artist"]}</p>
+                <p>${song["song_album"]}</p>
+            </div>
+        `;
+
+        songContainer.appendChild(newSong);
+    }
+}
+
+// likes or unlikes a playlist depending on whether the user has liked it
 const toggleLike = (id) => {
 
     const playlistLikeContainer = document.getElementById(id.toString()).querySelector(".like-container");
@@ -115,7 +169,7 @@ const shufflePlaylist = (id) => {
     for (let i = 0; i < numSongs; i++) {
         const randIndex1 = Math.floor(Math.random() * numSongs);
         const randIndex2 = Math.floor(Math.random() * numSongs);
-        console.log(randIndex1, randIndex2);
+        
         let temp = songArray[randIndex1];
         songArray[randIndex1] = songArray[randIndex2];
         songArray[randIndex2] = temp;
@@ -175,3 +229,4 @@ window.onclick = function(event) {
 }
 
 loadPlaylistData();
+
