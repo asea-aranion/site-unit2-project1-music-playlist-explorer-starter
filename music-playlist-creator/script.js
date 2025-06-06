@@ -65,11 +65,18 @@ const displayPlaylists = (playlistsData) => {
                 <p class="like-counter">${playlist["likes"]}</p>
             </div>
             <div class="playlist-button-container">
-                <button onclick="deletePlaylist(${playlist["id"]})">
+                <button class="delete-button" onclick="deletePlaylist(${playlist["id"]})">
                     Delete
+                </button>
+                <button class="edit-button">
+                    Edit
                 </button>
             </div>
         `
+
+        newPlaylist.querySelector(".edit-button").addEventListener("click", (event) => {
+            showModal(playlist, true);
+        });
 
         newPlaylist.addEventListener("click", (event) => {
             
@@ -191,44 +198,87 @@ const showModal = (playlistData, editing) => {
     // if showing existing playlist rather than adding a new one
     if (playlistData != null) {
 
-        // populate clicked playlist data
-        const playlistDetailView = document.createElement("div");
+        // if opening edit form rather than detail view
+        if (editing) {
 
-        playlistDetailView.innerHTML = `
-            <section class="playlist-info">
-                <img src="${playlistData["playlistArt"]["src"]}" alt="${playlistData["playlistArt"]["alt"]}">
-                <div class="playlist-info-text">
-                    <h3>${playlistData["title"]}</h3>
-                    <p>${playlistData["author"]}</p>
-                </div>
-                <button onclick="shufflePlaylist(${playlistData["id"]})">
-                    Shuffle
-                </button>
-            </section>
-            <section class="songs">
-                
-            </section>
-        `;
+            const playlistEditForm = document.createElement("form");
 
-        modal.appendChild(playlistDetailView);
-
-        const songContainer = modal.querySelector(".songs");
-
-        songContainer.innerHTML = "";
-
-        for (let song of playlistData["songs"]) {
-            const newSong = document.createElement("article");
-            newSong.className = "song";
-            newSong.innerHTML = `
-                <img src=${song["art"]["src"]} alt=${song["art"]["alt"]}>
-                <div class="song-info-text">
-                    <h6>${song["title"]} <span class="song-duration">${song["duration"]}</span></h6>
-                    <p>${song["artist"]}</p>
-                    <p>${song["album"]}</p>
-                </div>
+            playlistEditForm.id = "edit-playlist-form";
+            playlistEditForm.innerHTML = `
+                    <section class="playlist-data">
+                        <input type="text" id="input-edit-title" placeholder="Playlist title" value="${playlistData["title"]}" required>
+                        <input type="text" id="input-edit-author" placeholder="Playlist author" value="${playlistData["author"]}" required>
+                    </section>
+                    <section class="songs-data">
+                        <button type="button" onclick="addSongToEditPlaylistForm()">
+                            + Add song
+                        </button>
+                    </section>
+                    
+                    <button type="submit" onclick="handleEditPlaylistSubmit(event, ${playlistData["id"]})">
+                        Save playlist
+                    </button>
             `;
 
-            songContainer.appendChild(newSong);
+            const editSongsContainer = playlistEditForm.querySelector(".songs-data");
+
+            for (let song of playlistData["songs"]) {
+                const newSongForm = document.createElement("div");
+
+                newSongForm.innerHTML = `
+                    <input type="text" class="input-edit-song-title" placeholder="Song title" value="${song["title"]}" required>
+                    <input type="text" class="input-edit-song-artist" placeholder="Artist name" value="${song["artist"]}" required>
+                    <input type="text" class="input-edit-song-album" placeholder="Album name" value="${song["album"]}" required>
+                    <input type="text" class="input-edit-song-duration" placeholder="Song duration" value="${song["duration"]}" required>
+                `;
+
+                editSongsContainer.appendChild(newSongForm);
+            }
+
+            modal.appendChild(playlistEditForm);
+
+        } else {
+
+            // populate clicked playlist data
+            const playlistDetailView = document.createElement("div");
+
+            playlistDetailView.innerHTML = `
+                <section class="playlist-info">
+                    <img src="${playlistData["playlistArt"]["src"]}" alt="${playlistData["playlistArt"]["alt"]}">
+                    <div class="playlist-info-text">
+                        <h3>${playlistData["title"]}</h3>
+                        <p>${playlistData["author"]}</p>
+                    </div>
+                    <button onclick="shufflePlaylist(${playlistData["id"]})">
+                        Shuffle
+                    </button>
+                </section>
+                <section class="songs">
+                    
+                </section>
+            `;
+
+            modal.appendChild(playlistDetailView);
+
+            const songContainer = modal.querySelector(".songs");
+
+            songContainer.innerHTML = "";
+
+            for (let song of playlistData["songs"]) {
+                const newSong = document.createElement("article");
+                newSong.className = "song";
+                newSong.innerHTML = `
+                    <img src=${song["art"]["src"]} alt=${song["art"]["alt"]}>
+                    <div class="song-info-text">
+                        <h6>${song["title"]} <span class="song-duration">${song["duration"]}</span></h6>
+                        <p>${song["artist"]}</p>
+                        <p>${song["album"]}</p>
+                    </div>
+                `;
+
+                songContainer.appendChild(newSong);
+            }
+
         }
 
     // if null was passed in, show add playlist form
@@ -268,6 +318,39 @@ const hideModal = () => {
     overlay.style.opacity = "0";
     document.body.style.overflow = "scroll";
     overlay.style.zIndex = "-1";
+}
+
+const handleEditPlaylistSubmit = (event, id) => {
+    event.preventDefault();
+
+    playlists[id] = {
+        ...playlists[id],
+        "title": document.getElementById("input-edit-title").value,
+        "author": document.getElementById("input-edit-author").value,
+        "songs": new Array()
+    };
+
+    const songInputsArray = Array.from(modal.querySelector(".songs-data").children).slice(1);
+
+
+    // add songs to new playlist object
+    for (let songInputs of songInputsArray) {
+        
+        playlists[id]["songs"].push({
+            "title": songInputs.querySelector(".input-edit-song-title").value,
+            "artist": songInputs.querySelector(".input-edit-song-artist").value,
+            "album": songInputs.querySelector(".input-edit-song-album").value,
+            "duration": songInputs.querySelector(".input-edit-song-duration").value,
+            "art": {
+                "src": "assets/img/song.png",
+                "alt": "An icon of a music note."
+            }
+        });
+    }
+
+    displayPlaylists(playlists);
+
+    hideModal();
 }
 
 // add playlist to array and display all playlists
@@ -329,6 +412,22 @@ const addSongToAddPlaylistForm = () => {
     `;
 
     addPlaylistFormSongs.appendChild(newSongForm);
+}
+
+const addSongToEditPlaylistForm = () => {
+    const editSongsContainer = modal.querySelector(".songs-data");
+
+    const newSongForm = document.createElement("div");
+
+    newSongForm.innerHTML = `
+        <input type="text" class="input-edit-song-title" placeholder="Song title" required>
+        <input type="text" class="input-edit-song-artist" placeholder="Artist name" required>
+        <input type="text" class="input-edit-song-album" placeholder="Album name" required>
+        <input type="text" class="input-edit-song-duration" placeholder="Song duration" required>
+    `;
+
+    editSongsContainer.appendChild(newSongForm);
+    
 }
 
 // delete a playlist from the array and display

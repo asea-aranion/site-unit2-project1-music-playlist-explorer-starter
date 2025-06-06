@@ -94,7 +94,7 @@ footer {
     margin: 0;
 }
 
-#add-playlist-form {
+#add-playlist-form, #edit-playlist-form {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
@@ -103,14 +103,14 @@ footer {
     padding: 2rem;
 }
 
-#add-playlist-form input {
+#add-playlist-form input, #edit-playlist-form input {
     display: block;
     font-family: "Avenir", sans-serif;
     color: white;
     font-size: 20px;
 }
 
-#add-playlist-form input[type="text"] {
+#add-playlist-form input[type="text"], #edit-playlist-form input[type="text"] {
     background-color: rgb(31, 30, 43);
     border-radius: 1rem;
     border: none;
@@ -118,7 +118,7 @@ footer {
     flex-grow: 2;
 }
 
-#add-playlist-form button {
+#add-playlist-form button, #edit-playlist-form button {
     background-color: rgb(137, 154, 250);
     padding: 1rem 2rem;
     border-radius: 1rem;
@@ -128,11 +128,11 @@ footer {
     color: black;
 }
 
-#add-playlist-form button:hover {
+#add-playlist-form button:hover, #edit-playlist-form button:hover {
     background-color: mediumseagreen;
 }
 
-#add-playlist-form .playlist-data {
+.playlist-data {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -140,7 +140,7 @@ footer {
     gap: 2rem;
 }
 
-#add-playlist-form .songs-data {
+.songs-data {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
@@ -148,7 +148,7 @@ footer {
     gap: 1rem;
 }
 
-#add-playlist-form .songs-data div {
+.songs-data div {
     display: flex;
     flex-flow: row wrap;
     gap: 2rem;
@@ -229,6 +229,13 @@ footer {
     margin: 0.2rem 0.8rem;
 }
 
+.playlist-button-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0.2rem 0.8rem 1rem;
+}
+
 .playlist-button-container button {
     background-color: rgb(137, 154, 250);
     padding: 0.5rem 1rem;
@@ -237,7 +244,6 @@ footer {
     font-size: 20px;
     text-align: center;
     color: black;
-    margin: 0.2rem 0.8rem 1rem;
 }
 
 .playlist-button-container button:hover {
