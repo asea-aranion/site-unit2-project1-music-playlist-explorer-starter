@@ -142,15 +142,15 @@ const displayFeaturedPlaylist = () => {
 const toggleLike = (id) => {
 
     const playlistLikeContainer = document.getElementById(id.toString()).querySelector(".like-container");
-
+    
     if (playlistLikeContainer.dataset.liked === "false") {
         // like playlist
 
         // update playlist data
-        playlists[id]["likes"] += 1;
-
+        playlists.find((element) => element["id"] === id)["likes"] += 1;
+        
         // update displayed like counter
-        playlistLikeContainer.querySelector(".like-counter").textContent = playlists[id]["likes"];
+        playlistLikeContainer.querySelector(".like-counter").textContent = playlists.find((element) => element["id"] === id)["likes"];
 
         // update heart icon
         playlistLikeContainer.querySelector("svg").innerHTML = heartFilledPath;
@@ -162,10 +162,10 @@ const toggleLike = (id) => {
         // unlike playlist
 
         // update playlist data
-        playlists[id]["likes"] -= 1;
+        playlists.find((element) => element["id"] === id)["likes"] -= 1;
 
         // update displayed like counter
-        playlistLikeContainer.querySelector(".like-counter").textContent = playlists[id]["likes"];
+        playlistLikeContainer.querySelector(".like-counter").textContent = playlists.find((element) => element["id"] === id)["likes"];
 
         // update heart icon
         playlistLikeContainer.querySelector("svg").innerHTML = heartOutlinePath;
@@ -179,7 +179,7 @@ const toggleLike = (id) => {
 
 // shuffle songs in the playlist with the given id
 const shufflePlaylist = (id) => {
-    const songArray = playlists[id]["songs"]
+    const songArray = playlists.find((element) => element["id"] === id)["songs"]
     const numSongs = songArray.length;
 
     // perform numSongs swaps between random indices
@@ -192,7 +192,7 @@ const shufflePlaylist = (id) => {
         songArray[randIndex2] = temp;
     }
 
-    showModal(playlists[id], false);
+    showModal(playlists.find((element) => element["id"] === id), false);
 }
 
 // make overlay and modal visible, populate modal, disable scrolling
@@ -330,8 +330,9 @@ const hideModal = () => {
 const handleEditPlaylistSubmit = (event, id) => {
     event.preventDefault();
 
-    playlists[id] = {
-        ...playlists[id],
+    // create copy of playlist to edit with updated data
+    const editedPlaylist = {
+        ...playlists.find((element) => element["id"] === id),
         "title": document.getElementById("input-edit-title").value,
         "author": document.getElementById("input-edit-author").value,
         "songs": new Array()
@@ -339,11 +340,10 @@ const handleEditPlaylistSubmit = (event, id) => {
 
     const songInputsArray = Array.from(modal.querySelector(".songs-data").children).slice(1);
 
-
     // add songs to new playlist object
     for (let songInputs of songInputsArray) {
         
-        playlists[id]["songs"].push({
+        editedPlaylist["songs"].push({
             "title": songInputs.querySelector(".input-edit-song-title").value,
             "artist": songInputs.querySelector(".input-edit-song-artist").value,
             "album": songInputs.querySelector(".input-edit-song-album").value,
@@ -354,6 +354,11 @@ const handleEditPlaylistSubmit = (event, id) => {
             }
         });
     }
+
+    // delete old playlist version and add new version
+    deletePlaylist(id);
+
+    playlists.push(editedPlaylist);
 
     displayPlaylists(playlists);
 
