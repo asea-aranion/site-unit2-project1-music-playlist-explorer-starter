@@ -11,7 +11,7 @@ const heartOutlinePath = '<path class="outlined" fill="#899afa" d="M225.8 468.2l
 const heartFilledPath = '<path class="filled" fill="mediumseagreen" d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/>';
 
 // fetches data from json file, stores playlists in array, and adds each playlist to view
-const loadPlaylistData = async () => {
+const loadPlaylistData = () => {
     fetch("data/data.json")
         .then(response => {
             if (!response.ok) {
@@ -462,23 +462,27 @@ const clearSearchTerm = () => {
     filterPlaylists();
 }
 
+const NAME_SORT = 0;
+const LIKES_SORT = 1;
+const DATE_SORT = 2;
+
 // perform mutating sort on playlists array and display sorted array
 const sortPlaylists = (sortNum) => {
 
     // sort by name
-    if (sortNum === 0) {
+    if (sortNum === NAME_SORT) {
         playlists.sort((a, b) => 
             a["title"].localeCompare(b["title"])
         );
 
     // sort by likes
-    } else if (sortNum === 1) {
+    } else if (sortNum === LIKES_SORT) {
         playlists.sort((a, b) =>
             b["likes"] - a["likes"]
         );
 
     // sort by date added
-    } else if (sortNum === 2) {
+    } else if (sortNum === DATE_SORT) {
         playlists.sort((a, b) =>
             new Date(b["dateAdded"]) - new Date(a["dateAdded"])
         );
