@@ -55,6 +55,7 @@ footer {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 2rem;
 }
 
 .top-buttons-container button {
@@ -77,9 +78,10 @@ footer {
 
 .sort-buttons-container {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     border-radius: 2rem;
-    overflow: hidden;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .sort-buttons-container button {
@@ -203,7 +205,7 @@ footer {
 .playlist {
     width: 18rem;
     background-color: rgb(31, 30, 43);
-    border-radius: 1rem;
+    border-radius: 1.5rem;
     overflow: hidden;
     box-sizing: border-box;
     margin: 1.5rem;
