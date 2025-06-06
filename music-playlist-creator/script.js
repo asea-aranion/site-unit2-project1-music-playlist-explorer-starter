@@ -474,7 +474,7 @@ const sortPlaylists = (sortNum) => {
     // sort by likes
     } else if (sortNum === 1) {
         playlists.sort((a, b) =>
-            a["likes"] - b["likes"]
+            b["likes"] - a["likes"]
         );
 
     // sort by date added
