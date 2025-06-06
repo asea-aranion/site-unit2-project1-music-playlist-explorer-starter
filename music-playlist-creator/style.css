@@ -42,7 +42,7 @@ footer {
     font-size: 20px;
     text-decoration: none;
     font-weight: bold;
-    background-color: #899afa;
+    background-color: rgb(137, 154, 250);
 }
 
 .nav-links-container a:hover {
@@ -58,7 +58,7 @@ footer {
 }
 
 .top-buttons-container button {
-    background-color: #899afa;
+    background-color: rgb(137, 154, 250);
     padding: 1rem 2rem;
     border-radius: 1rem;
     font-weight: bold;
@@ -71,11 +71,8 @@ footer {
     background-color: mediumseagreen;
 }
 
-#add-playlist-form {
-    height: 0rem;
-    overflow: hidden;
-    transition: height 0.25s ease-in-out;
-    margin: 1.5rem 5rem 0;
+#add-playlist-form button[type="submit"] {
+    margin: 0 2rem 2rem;
 }
 
 .sort-buttons-container {
@@ -97,13 +94,20 @@ footer {
     margin: 0;
 }
 
+#add-playlist-form {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
 #add-playlist-form input {
     display: block;
     font-family: "Avenir", sans-serif;
     color: white;
     font-size: 20px;
-    margin: 1rem 0rem;
-    width: 20rem;
 }
 
 #add-playlist-form input[type="text"] {
@@ -111,21 +115,44 @@ footer {
     border-radius: 1rem;
     border: none;
     padding: 0.5rem 1rem;
+    flex-grow: 2;
 }
 
-#add-playlist-form button[type="submit"] {
-    background-color: #899afa;
+#add-playlist-form button {
+    background-color: rgb(137, 154, 250);
     padding: 1rem 2rem;
     border-radius: 1rem;
     font-weight: bold;
     font-size: 20px;
     text-align: center;
     color: black;
-    margin-top: 1rem;
 }
 
 #add-playlist-form button:hover {
     background-color: mediumseagreen;
+}
+
+#add-playlist-form .playlist-data {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+#add-playlist-form .songs-data {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+#add-playlist-form .songs-data div {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    width: 100%;
 }
 
 .search-container {
@@ -150,7 +177,7 @@ footer {
 }
 
 .search-container button {
-    background-color: #899afa;
+    background-color: rgb(137, 154, 250);
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     font-weight: bold;
@@ -203,7 +230,7 @@ footer {
 }
 
 .playlist-button-container button {
-    background-color: #899afa;
+    background-color: rgb(137, 154, 250);
     padding: 0.5rem 1rem;
     border-radius: 1rem;
     font-weight: bold;
@@ -242,7 +269,7 @@ button {
 }
 
 .playlist button:hover path.filled {
-    fill: #899afa;
+    fill: rgb(137, 154, 250);
 }
 
 .like-container {
@@ -304,11 +331,11 @@ button {
 .playlist-info p {
     font-size: 24px;
     margin: 0.2rem;
-    color: #899afa;
+    color: rgb(137, 154, 250);
 }
 
 .playlist-info button {
-    background-color: #899afa;
+    background-color: rgb(137, 154, 250);
     padding: 1rem 2rem;
     border-radius: 1rem;
     font-weight: bold;
@@ -363,7 +390,7 @@ button {
 
 .song-info-text p {
     font-size: 16px;
-    color: #899afa;
+    color: rgb(137, 154, 250);
 }
 
 .featured-container {
@@ -427,7 +454,7 @@ button {
 
 .featured-info p {
     font-size: 24px;
-    color: #899afa;
+    color: rgb(137, 154, 250);
 }
 
 .featured-info h3, .featured-info p {

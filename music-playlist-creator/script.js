@@ -75,7 +75,7 @@ const displayPlaylists = (playlistsData) => {
             
             // prevent clicking buttons within a playlist from displaying modal
             if (event.target.tagName !== "BUTTON" && event.target.tagName !== "svg" && event.target.tagName !== "path") {
-                showModal(playlist);
+                showModal(playlist, false);
             }
 
         });
@@ -180,37 +180,81 @@ const shufflePlaylist = (id) => {
         songArray[randIndex2] = temp;
     }
 
-    showModal(playlists[id]);
+    showModal(playlists[id], false);
 }
 
-// makes overlay and modal visible, disables scrolling
-const showModal = (playlistData) => {
-    // populate clicked playlist data
-    modal.querySelector("h3").innerHTML = playlistData["title"];
-    modal.querySelector("p").innerHTML = playlistData["author"];
-    modal.querySelector("img").src = playlistData["playlistArt"]["src"];
-    modal.querySelector("img").alt = playlistData["playlistArt"]["alt"];
-    modal.querySelector("button").onclick = () => {
-        shufflePlaylist(playlistData["id"]);
-    }
+// make overlay and modal visible, populate modal, disable scrolling
+const showModal = (playlistData, editing) => {
 
-    const songContainer = modal.querySelector(".songs");
+    modal.innerHTML = "";
 
-    songContainer.innerHTML = "";
+    // if showing existing playlist rather than adding a new one
+    if (playlistData != null) {
 
-    for (let song of playlistData["songs"]) {
-        const newSong = document.createElement("article");
-        newSong.className = "song";
-        newSong.innerHTML = `
-            <img src=${song["art"]["src"]} alt=${song["art"]["alt"]}>
-            <div class="song-info-text">
-                <h6>${song["title"]} <span class="song-duration">${song["duration"]}</span></h6>
-                <p>${song["artist"]}</p>
-                <p>${song["album"]}</p>
-            </div>
+        // populate clicked playlist data
+        const playlistDetailView = document.createElement("div");
+
+        playlistDetailView.innerHTML = `
+            <section class="playlist-info">
+                <img src="${playlistData["playlistArt"]["src"]}" alt="${playlistData["playlistArt"]["alt"]}">
+                <div class="playlist-info-text">
+                    <h3>${playlistData["title"]}</h3>
+                    <p>${playlistData["author"]}</p>
+                </div>
+                <button onclick="shufflePlaylist(${playlistData["id"]})">
+                    Shuffle
+                </button>
+            </section>
+            <section class="songs">
+                
+            </section>
         `;
 
-        songContainer.appendChild(newSong);
+        modal.appendChild(playlistDetailView);
+
+        const songContainer = modal.querySelector(".songs");
+
+        songContainer.innerHTML = "";
+
+        for (let song of playlistData["songs"]) {
+            const newSong = document.createElement("article");
+            newSong.className = "song";
+            newSong.innerHTML = `
+                <img src=${song["art"]["src"]} alt=${song["art"]["alt"]}>
+                <div class="song-info-text">
+                    <h6>${song["title"]} <span class="song-duration">${song["duration"]}</span></h6>
+                    <p>${song["artist"]}</p>
+                    <p>${song["album"]}</p>
+                </div>
+            `;
+
+            songContainer.appendChild(newSong);
+        }
+
+    // if null was passed in, show add playlist form
+    } else {
+        const addPlaylistForm = document.createElement("form");
+
+        addPlaylistForm.id = "add-playlist-form";
+        addPlaylistForm.innerHTML = `
+                <section class="playlist-data">
+                    <input type="text" id="input-title" placeholder="Playlist title" required>
+                    <input type="text" id="input-author" placeholder="Playlist author" required>
+                    <input type="file" id="input-cover" accept="image/jpeg, image/png" required>
+                </section>
+                <section class="songs-data">
+                    <button type="button" onclick="addSongToAddPlaylistForm()">
+                        + Add song
+                    </button>
+                </section>
+                
+                <button type="submit" onclick="handleAddPlaylistSubmit(event)">
+                    Add playlist
+                </button>
+        `;
+
+        modal.appendChild(addPlaylistForm);
+
     }
 
     // display modal and overlay
@@ -226,13 +270,15 @@ const hideModal = () => {
     overlay.style.zIndex = "-1";
 }
 
+// add playlist to array and display all playlists
 const handleAddPlaylistSubmit = (event) => {
     event.preventDefault();
 
     const imageURL = URL.createObjectURL(document.getElementById("input-cover").files[0]);
 
-    playlists.push({
-        "id": playlists[playlists.length - 1]["id"] + 1,
+    // add data for playlist itself
+    const newPlaylistData = {
+        "id": playlists.length,
         "title": document.getElementById("input-title").value,
         "author": document.getElementById("input-author").value,
         "likes": 0,
@@ -241,22 +287,48 @@ const handleAddPlaylistSubmit = (event) => {
             "src": imageURL,
             "alt": ""
         },
-        "songs": []
-    })
+        "songs": new Array()
+    };
+
+    // get array of divs containing inputted song data
+    const songInputsArray = Array.from(modal.querySelector(".songs-data").children).slice(1);
+
+    // add songs to new playlist object
+    for (let songInputs of songInputsArray) {
+        
+        newPlaylistData["songs"].push({
+            "title": songInputs.querySelector(".input-song-title").value,
+            "artist": songInputs.querySelector(".input-song-artist").value,
+            "album": songInputs.querySelector(".input-song-album").value,
+            "duration": songInputs.querySelector(".input-song-duration").value,
+            "art": {
+                "src": "assets/img/song.png",
+                "alt": "An icon of a music note."
+            }
+        });
+    }
+
+    playlists.push(newPlaylistData);
 
     displayPlaylists(playlists);
 
+    hideModal();
+
 }
 
-// show or hide the add playlist form, depending on whether it is shown
-const toggleShowAddPlaylistForm = () => {
+const addSongToAddPlaylistForm = () => {
     const addPlaylistForm = document.querySelector("#add-playlist-form");
+    const addPlaylistFormSongs = addPlaylistForm.querySelector(".songs-data");
 
-    if (addPlaylistForm.style.height == "16rem") {
-        addPlaylistForm.style.height = "0rem";
-    } else {
-        addPlaylistForm.style.height = "16rem";
-    }
+    const newSongForm = document.createElement("div");
+    newSongForm.innerHTML = `
+        <input type="text" class="input-song-title" placeholder="Song title" required>
+        <input type="text" class="input-song-artist" placeholder="Artist name" required>
+        <input type="text" class="input-song-album" placeholder="Album name" required>
+        <input type="text" class="input-song-duration" placeholder="Song duration" required>
+    `;
+
+    addPlaylistFormSongs.appendChild(newSongForm);
 }
 
 // delete a playlist from the array and display

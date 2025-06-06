@@ -26,7 +26,7 @@
         </section>
         <section class="top-buttons-container">
             <section class="add-playlist-container">
-                <button onclick="toggleShowAddPlaylistForm()">
+                <button onclick="showModal(null, false)">
                     + Add Playlist
                 </button>
             </section>
@@ -44,33 +44,12 @@
             </section>
         </section>
         
-        <form id="add-playlist-form">
-            <input type="text" id="input-title" placeholder="Playlist title" required>
-            <input type="text" id="input-author" placeholder="Playlist author" required>
-            <input type="file" id="input-cover" accept="image/jpeg, image/png" required>
-            <button type="submit" onclick="handleAddPlaylistSubmit(event)">
-                Add
-            </button>
-        </form>
-        
         <section class="playlist-cards">
             
         </section>
         <div id="overlay">
             <div id="modal">
-                <section class="playlist-info">
-                    <img src="assets/img/playlist.png" alt="An icon of a spinning CD.">
-                    <div class="playlist-info-text">
-                        <h3>Playlist Title</h3>
-                        <p>Creator Name</p>
-                    </div>
-                    <button>
-                        Shuffle
-                    </button>
-                </section>
-                <section class="songs">
-                    
-                </section>
+                
             </div>
         </div>
     </main>
